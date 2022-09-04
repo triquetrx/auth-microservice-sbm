@@ -19,7 +19,7 @@ public class LocalUserDetails implements UserDetails {
 
 	public LocalUserDetails(Users users) {
 		super();
-		this.username = users.getUsername();
+		this.username = users.getEmail();
 		this.password = users.getPassword();
 		this.roles = Arrays.stream(users.getRoles().split(",")).map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());

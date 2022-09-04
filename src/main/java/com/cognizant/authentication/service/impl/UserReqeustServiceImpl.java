@@ -1,5 +1,7 @@
 package com.cognizant.authentication.service.impl;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +10,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cognizant.authentication.dto.ConfirmPasswordDTO;
+import com.cognizant.authentication.dto.ForgotPasswordDTO;
 import com.cognizant.authentication.dto.NewUserDTO;
 import com.cognizant.authentication.dto.PasswordChangeDTO;
+import com.cognizant.authentication.exception.InvalidSecurityKey;
 import com.cognizant.authentication.exception.PasswordNotAMatchException;
+import com.cognizant.authentication.exception.UserNotFoundException;
 import com.cognizant.authentication.model.Users;
 import com.cognizant.authentication.repository.UserRepository;
 import com.cognizant.authentication.service.UserRequestService;
@@ -26,14 +31,14 @@ public class UserReqeustServiceImpl implements UserRequestService  {
 	public void newUser(NewUserDTO newUserDTO) {
 
 		int id = (int) repository.count() + 1;
-		repository.save(new Users(id, newUserDTO.getCustomerId(), newUserDTO.getName(), newUserDTO.getUsername(),
-				encoder().encode(newUserDTO.getPassword()), "ROLE_USER"));
+		repository.save(new Users(id, newUserDTO.getName(), newUserDTO.getEmail(),
+				encoder().encode(newUserDTO.getPassword()), newUserDTO.getRole(), newUserDTO.getUserId(),true,encoder().encode(newUserDTO.getSecurityKey())));
 	}
 	
 	@Override
 	@Transactional
 	public String changePassword(String username,PasswordChangeDTO passwordChangeDTO) throws PasswordNotAMatchException {
-		Users users = repository.findByUsername(username).get();
+		Users users = repository.findByEmail(username).get();
 		if(encoder().matches(passwordChangeDTO.getOldPassword(), users.getPassword())) {
 			users.setPassword(encoder().encode(passwordChangeDTO.getNewPassword()));
 			repository.save(users);
@@ -46,11 +51,37 @@ public class UserReqeustServiceImpl implements UserRequestService  {
 	@Override
 	@Transactional
 	public boolean checkPassword(String username,ConfirmPasswordDTO dto) throws PasswordNotAMatchException {
-		Users users = repository.findByUsername(username).get();
+		Users users = repository.findByEmail(username).get();
 		if(encoder().matches(dto.getConfirmPassword(), users.getPassword())) {
 			return true;
 		} else {			
 			throw new PasswordNotAMatchException();
+		}
+	}
+	
+	@Override
+	@Transactional
+	public String updateUser(NewUserDTO dto) {
+		Users users = repository.findByEmail(dto.getEmail()).get();
+		users.setName(dto.getName());
+		users.setRoles(dto.getRole());
+		users.setPassword(encoder().encode(dto.getPassword()));
+		users.setActive(dto.isActive());
+		repository.save(users);
+		return "USER_UPDATED";
+	}
+	
+	@Override
+	@Transactional
+	public String forgotPassword(ForgotPasswordDTO dto) throws InvalidSecurityKey, UserNotFoundException {
+		Optional<Users> user = repository.findByEmail(dto.getEmail());
+		if(user.isPresent()) {
+			if(encoder().matches(dto.getSecurityKey(), user.get().getSecurityKey())) {
+				user.get().setPassword(encoder().encode(dto.getNewPassword()));
+			}
+			throw new InvalidSecurityKey("INVALID_SECURITY_KEY");
+		} else {
+			throw new UserNotFoundException("USER_NOT_PRESENT");
 		}
 	}
 

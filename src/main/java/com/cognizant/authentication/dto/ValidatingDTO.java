@@ -8,6 +8,6 @@ public @NoArgsConstructor @Data @AllArgsConstructor class ValidatingDTO {
 	
 	private boolean validStatus;
 	private String userRole;
-	private String customerId;
+	private String email;
 	
 }

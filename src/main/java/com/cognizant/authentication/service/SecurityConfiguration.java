@@ -41,9 +41,10 @@ public class SecurityConfiguration {
 
 		https.cors().and().csrf().disable()
 				.authorizeRequests().antMatchers("/authenticate").permitAll()
-				.antMatchers("/register").permitAll().
-				anyRequest().authenticated().and().
-				exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+				.antMatchers("/register").permitAll()
+				.anyRequest().authenticated().and()
+				.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
+				.and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		https.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 

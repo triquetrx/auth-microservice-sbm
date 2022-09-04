@@ -1,6 +1,8 @@
 package com.cognizant.authentication.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -11,11 +13,13 @@ import lombok.NoArgsConstructor;
 public @Data @AllArgsConstructor @NoArgsConstructor class Users {
 
 	@Id
-	private Integer userId;
-	private String customerId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer loginId;
 	private String name;
-	private String username;
+	private String email;
 	private String password;
 	private String roles;
-
+	private Long userId;
+	private boolean active;
+	private String securityKey;
 }

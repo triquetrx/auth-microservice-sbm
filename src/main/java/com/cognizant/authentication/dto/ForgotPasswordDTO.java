@@ -4,14 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-public @Data @AllArgsConstructor @NoArgsConstructor class NewUserDTO {
+public @AllArgsConstructor @Data @NoArgsConstructor class ForgotPasswordDTO {
 
-	private String name;
 	private String email;
-	private String password;
-	private Long userId;
-	private String role;
 	private String securityKey;
-	private boolean active;
+	private String newPassword;
 	
 }

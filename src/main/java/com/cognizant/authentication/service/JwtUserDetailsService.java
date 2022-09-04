@@ -21,21 +21,15 @@ public class JwtUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<Users> users = userRepo.findByUsername(username);
+		Optional<Users> users = userRepo.findByEmail(username);
 		users.orElseThrow(() -> new UsernameNotFoundException("User Not found"));
 		return users.map(LocalUserDetails::new).get();
 	}
 
 	@Transactional
 	public String getName(String username) {
-		Users users = userRepo.findByUsername(username).get();
+		Users users = userRepo.findByEmail(username).get();
 		return users.getName();
-	}
-
-	@Transactional
-	public String getCustomerId(String username) {
-		Users users = userRepo.findByUsername(username).get();
-		return users.getCustomerId();
 	}
 
 }

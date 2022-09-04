@@ -5,12 +5,12 @@ import lombok.NoArgsConstructor;
 
 public @Data @NoArgsConstructor class AuthenticationRequest {
 
-	private String username;
+	private String email;
 	private String password;
 
-	public AuthenticationRequest(String username, String password) {
+	public AuthenticationRequest(String email, String password) {
 		super();
-		this.username = username;
+		this.email = email;
 		this.password = password;
 	}
 

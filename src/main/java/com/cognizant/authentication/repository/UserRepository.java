@@ -10,7 +10,7 @@ import com.cognizant.authentication.model.Users;
 @Repository
 public interface UserRepository extends JpaRepository<Users, Integer> {
 
-	Optional<Users> findByUsername(String userName);
+	Optional<Users> findByEmail(String email);
 	
 	
 }
