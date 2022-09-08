@@ -44,3 +44,13 @@
 18:53:49.748 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient DiscoveryClient_AUTHENTICATION-MICROSERVICE/LTIN287456.cts.com:authentication-microservice:8001 - registration status: 204
 18:53:49.850 [restartedMain] INFO  c.c.a.AuthorizationApplication Started AuthorizationApplication in 2.176 seconds (JVM running for 9093.91)
 18:53:49.853 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener Condition evaluation unchanged
+18:58:49.710 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+19:03:49.710 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+19:08:49.704 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+19:13:49.703 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+19:18:49.708 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+19:23:49.708 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+19:28:49.714 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+19:33:49.714 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+19:38:49.711 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+19:43:49.717 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
