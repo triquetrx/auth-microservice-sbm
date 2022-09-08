@@ -1,4 +1,4 @@
-package com.cognizant.authentication;
+package com.cognizant.authentication.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,17 +7,15 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.cognizant.authentication.controller.AuthenticationController;
-
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class ControllerTest {
-
-	AuthenticationController controller;
+public class ServiceTest {
+	
+	UserRequestService requestService;
 	
 	@Test
-	void testController() {
-		assertThat(controller).isNull();
+	void testReqeuestService() {
+		assertThat(requestService).isNull();
 	}
-	
+
 }

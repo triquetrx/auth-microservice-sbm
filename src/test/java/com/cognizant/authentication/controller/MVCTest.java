@@ -1,8 +1,9 @@
-package com.cognizant.authentication;
+package com.cognizant.authentication.controller;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -34,7 +35,7 @@ public class MVCTest {
 	@Test
 	public void testLogin() throws Exception {
 		Gson gson = new Gson();
-		AuthenticationRequest request = new AuthenticationRequest("triquetrx", "zaidkhan");
+		AuthenticationRequest request = new AuthenticationRequest("triquetrx@test.com", "zaidkhan");
 		String json = gson.toJson(request);
 		mvc.perform(post("/authenticate")
 				.contentType(MediaType.APPLICATION_JSON)
@@ -47,7 +48,7 @@ public class MVCTest {
 	@Test
 	public void testInvalidLogin() throws Exception {
 		Gson gson = new Gson();
-		AuthenticationRequest request = new AuthenticationRequest("triquetrx", "zaid");
+		AuthenticationRequest request = new AuthenticationRequest("triquetrx@test.com", "zaid");
 		String json = gson.toJson(request);
 		mvc.perform(post("/authenticate")
 				.contentType(MediaType.APPLICATION_JSON)
@@ -60,7 +61,7 @@ public class MVCTest {
 	@Test
 	public String testTokenLogin() throws Exception {
 		Gson gson = new Gson();
-		AuthenticationRequest request = new AuthenticationRequest("triquetrx", "zaidkhan");
+		AuthenticationRequest request = new AuthenticationRequest("triquetrx@test.com", "zaidkhan");
 		String json = gson.toJson(request);
 		MvcResult result = mvc.perform(post("/authenticate")
 				.contentType(MediaType.APPLICATION_JSON)
@@ -99,7 +100,7 @@ public class MVCTest {
 		PasswordChangeDTO changeDTO = new PasswordChangeDTO("zaidkhan", "zaidkhan");
 		Gson gson = new Gson();
 		String json = gson.toJson(changeDTO);
-		mvc.perform(post("/change-password")
+		mvc.perform(put("/change-password")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(json)
 				.header("Authorization", "Bearer "+testTokenLogin())
@@ -114,7 +115,7 @@ public class MVCTest {
 		PasswordChangeDTO changeDTO = new PasswordChangeDTO("zaidkh", "zaidkhan");
 		Gson gson = new Gson();
 		String json = gson.toJson(changeDTO);
-		mvc.perform(post("/change-password")
+		mvc.perform(put("/change-password")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(json)
 				.header("Authorization", "Bearer "+testTokenLogin())

@@ -103,7 +103,7 @@ public class AuthenticationController {
 	}
 
 	@CrossOrigin(origins = "http://localhost:5000")
-	@PostMapping("/change-password")
+	@PutMapping("/change-password")
 	public ResponseEntity<?> changePassword(@RequestHeader(name = "Authorization") String token,
 			@RequestBody PasswordChangeDTO dto) {
 		String tokenDup = token.substring(7);
@@ -140,8 +140,8 @@ public class AuthenticationController {
 		}
 	}
 	
-	@CrossOrigin(origins = "http://localhost:5000")
 	@PutMapping("/forgot-password")
+	@CrossOrigin(origins = "http://localhost:5000")
 	public ResponseEntity<?> forgotPassword(@RequestBody ForgotPasswordDTO dto){
 		try {
 			String result = requestService.forgotPassword(dto);

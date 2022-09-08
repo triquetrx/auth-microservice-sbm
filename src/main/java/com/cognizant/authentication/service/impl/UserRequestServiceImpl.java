@@ -21,7 +21,7 @@ import com.cognizant.authentication.repository.UserRepository;
 import com.cognizant.authentication.service.UserRequestService;
 
 @Service
-public class UserReqeustServiceImpl implements UserRequestService  {
+public class UserRequestServiceImpl implements UserRequestService  {
 
 	@Autowired
 	UserRepository repository;
@@ -65,8 +65,7 @@ public class UserReqeustServiceImpl implements UserRequestService  {
 		Users users = repository.findByEmail(dto.getEmail()).get();
 		users.setName(dto.getName());
 		users.setRoles(dto.getRole());
-		users.setPassword(encoder().encode(dto.getPassword()));
-		users.setActive(dto.isActive());
+		users.setActive(true);
 		repository.save(users);
 		return "USER_UPDATED";
 	}
@@ -78,8 +77,10 @@ public class UserReqeustServiceImpl implements UserRequestService  {
 		if(user.isPresent()) {
 			if(encoder().matches(dto.getSecurityKey(), user.get().getSecurityKey())) {
 				user.get().setPassword(encoder().encode(dto.getNewPassword()));
+				repository.save(user.get());
+				return "Password changed for "+user.get().getEmail();
 			}
-			throw new InvalidSecurityKey("INVALID_SECURITY_KEY");
+			throw new InvalidSecurityKey("Invalid Ssecurity Key");
 		} else {
 			throw new UserNotFoundException("USER_NOT_PRESENT");
 		}

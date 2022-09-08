@@ -12,6 +12,5 @@ public @Data @AllArgsConstructor @NoArgsConstructor class NewUserDTO {
 	private Long userId;
 	private String role;
 	private String securityKey;
-	private boolean active;
 	
 }

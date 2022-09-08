@@ -42,6 +42,7 @@ public class SecurityConfiguration {
 		https.cors().and().csrf().disable()
 				.authorizeRequests().antMatchers("/authenticate").permitAll()
 				.antMatchers("/register").permitAll()
+				.antMatchers("/forgot-password").permitAll()
 				.anyRequest().authenticated().and()
 				.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
 				.and().sessionManagement()

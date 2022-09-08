@@ -1,0 +1,46 @@
+18:53:47.819 [restartedMain] INFO  c.c.a.AuthorizationApplication Starting AuthorizationApplication using Java 17.0.1 on LTIN287456 with PID 47916 (C:\Users\2146122\mfpe\authentication-module\authentication-microservice\target\classes started by 2146122 in C:\Users\2146122\mfpe\authentication-module\authentication-microservice)
+18:53:47.819 [restartedMain] INFO  c.c.a.AuthorizationApplication No active profile set, falling back to 1 default profile: "default"
+18:53:48.381 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+18:53:48.403 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 21 ms. Found 1 JPA repository interfaces.
+18:53:48.548 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope BeanFactory id=d9759546-05c7-308c-bfd4-5db6f7e400b3
+18:53:48.712 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer Tomcat initialized with port(s): 8001 (http)
+18:53:48.713 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8001"]
+18:53:48.713 [restartedMain] INFO  o.a.catalina.core.StandardService Starting service [Tomcat]
+18:53:48.713 [restartedMain] INFO  o.a.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.65]
+18:53:48.759 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+18:53:48.759 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 935 ms
+18:53:48.884 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+18:53:48.893 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource HikariPool-3 - Starting...
+18:53:48.921 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource HikariPool-3 - Start completed.
+18:53:48.922 [restartedMain] INFO  org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+18:53:48.967 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+18:53:48.967 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+18:53:49.158 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+18:53:49.429 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver Exposing 1 endpoint(s) beneath base path '/actuator'
+18:53:49.441 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7bbb8e3b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@14984c1e, org.springframework.security.web.context.SecurityContextPersistenceFilter@1e0bb5d5, org.springframework.security.web.header.HeaderWriterFilter@284b8cef, org.springframework.web.filter.CorsFilter@2c79f9aa, org.springframework.security.web.authentication.logout.LogoutFilter@7063204e, com.cognizant.authentication.service.JwtRequestFilter@3c5abfa3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3fa04a27, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4b7895c8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d32fcd0, org.springframework.security.web.session.SessionManagementFilter@13f2746, org.springframework.security.web.access.ExceptionTranslationFilter@63785e45, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7cdfb2bf]
+18:53:49.548 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer Unable to start LiveReload server
+18:53:49.647 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration Eureka HTTP Client uses RestTemplate.
+18:53:49.698 [restartedMain] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+18:53:49.710 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+18:53:49.712 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+18:53:49.713 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+18:53:49.714 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Disable delta property : false
+18:53:49.715 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+18:53:49.715 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Force full registry fetch : false
+18:53:49.715 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Application is null : false
+18:53:49.715 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+18:53:49.715 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Application version is -1: true
+18:53:49.715 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+18:53:49.730 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient The response status is 200
+18:53:49.731 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 30
+18:53:49.732 [restartedMain] INFO  c.n.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+18:53:49.733 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1662643429733 with initial instances count: 4
+18:53:49.734 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry Registering application AUTHENTICATION-MICROSERVICE with eureka with status UP
+18:53:49.735 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1662643429735, current=UP, previous=STARTING]
+18:53:49.735 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient DiscoveryClient_AUTHENTICATION-MICROSERVICE/LTIN287456.cts.com:authentication-microservice:8001: registering service...
+18:53:49.735 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8001"]
+18:53:49.741 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer Tomcat started on port(s): 8001 (http) with context path ''
+18:53:49.741 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration Updating port to 8001
+18:53:49.748 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient DiscoveryClient_AUTHENTICATION-MICROSERVICE/LTIN287456.cts.com:authentication-microservice:8001 - registration status: 204
+18:53:49.850 [restartedMain] INFO  c.c.a.AuthorizationApplication Started AuthorizationApplication in 2.176 seconds (JVM running for 9093.91)
+18:53:49.853 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener Condition evaluation unchanged
