@@ -43,11 +43,13 @@ public class SecurityConfiguration {
 				.authorizeRequests().antMatchers("/authenticate").permitAll()
 				.antMatchers("/register").permitAll()
 				.antMatchers("/forgot-password").permitAll()
+				.antMatchers("/h2-console/**").permitAll()
 				.anyRequest().authenticated().and()
 				.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
 				.and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		https.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+		https.headers().frameOptions().disable();
 
 		return https.build();
 	}
